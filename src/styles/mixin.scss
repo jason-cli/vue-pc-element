@@ -1,0 +1,126 @@
+//  mixin样式的封装
+
+/*
+*   超出不换行，省略号
+*/
+
+@mixin nowrap-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /*
+  *   flex 布局，父级设置display的兼容性前缀添加
+  */
+  
+  @mixin display-flex {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: -moz-box;
+    /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+  }
+  
+  /*
+  *   flex布局 justify-content: space-between;兼容性
+  */
+  
+  @mixin justify-content-space {
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+  }
+  
+  /*
+  *   flex布局 justify-content: center;兼容性
+  */
+  
+  @mixin justify-content-center {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+  }
+  
+  /*
+  *   横向居中
+  */
+  
+  @mixin transform-translate-x {
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+  
+  /*
+  *   纵向居中
+  */
+  
+  @mixin transform-translate-y {
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+  }
+  
+  /*
+  *   垂直水平居中
+  */
+  
+  @mixin transform-translate-xy {
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+  
+  /*
+  *   设定标签多少行溢出隐藏替换省略号
+  */
+  
+  @mixin overflow-hidden-wrap($line) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+  }
+  
+  @mixin border1px($color) {
+    content: "";
+    border: 1px solid $color;
+    box-sizing: border-box;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    border-radius: 2px;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+  
+  
+  //详情简介等公用页面
+  @mixin detial(){
+      line-height: 0.5rem;
+      padding:0.3rem 0.41rem 0.3rem;
+      color:$font-color;
+      font-size:0.28rem;
+  }
+  
